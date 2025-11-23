@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="mt-8 bg-white/20 backdrop-blur-sm p-4 rounded-lg inline-flex flex-col sm:flex-row gap-4 sm:gap-8">
           <InfoItem icon="📅" text="Sábado, 24 Diciembre" />
           <InfoItem icon="⏰" text="4:30 PM - 6:10 PM" /> 
-          <InfoItem icon="📍" text="Salón Parroquial San Luis" />
+          <InfoItem icon="📍" text="Parroquia San Luis Gonzaga, Managua" />
         </div>
       </div>
     </section>
