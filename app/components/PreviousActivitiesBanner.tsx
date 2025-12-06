@@ -19,24 +19,47 @@ const PreviousActivitiesBanner = () => {
           Mira la alegría que hemos compartido en navidades anteriores. ¡Este año será aún mejor!
         </p>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-fr">
-          {placeholders.map((photo, index) => (
-            <div 
-              key={index} 
-              className={`relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${photo.span} aspect-video lg:aspect-auto`}
-              style={{minHeight: index === 0 ? '300px' : '150px'}}
-            >
-              <img
-                src={photo.url}
-                alt={photo.alt}
-                className="w-full h-full object-cover transition duration-500 ease-in-out hover:opacity-90"
-                onError={(e) => { (e.target as HTMLImageElement).onerror = null; (e.target as HTMLImageElement).src = "https://placehold.co/400x300/000000/ffffff?text=Placeholder" }}
-              />
-              <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <p className="text-white text-sm font-semibold p-2 text-center">{photo.alt}</p>
+        <div className="flex flex-wrap gap-4 lg:grid lg:grid-cols-4 lg:auto-rows-fr">
+          {placeholders.map((photo, index) => {
+            // Determinar el ancho de cada elemento basado en su posición y tamaño
+            let widthClass = 'w-full sm:w-[calc(50%-0.5rem)]';
+            
+            // Si es la primera imagen, ocupa todo el ancho en móviles
+            if (index === 0) {
+              widthClass = 'w-full lg:col-span-2 lg:row-span-2';
+            } 
+            // Si es la última imagen, también ocupa todo el ancho en móviles
+            else if (index === placeholders.length - 1) {
+              widthClass = 'w-full lg:col-span-2';
+            }
+            
+            return (
+              <div 
+                key={index}
+                className={`relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${widthClass} ${photo.span} aspect-video lg:aspect-auto`}
+                style={{ 
+                  minHeight: index === 0 ? '250px' : '150px',
+                  flex: index === 0 ? '1 0 100%' : '1 0 calc(50% - 0.5rem)'
+                }}
+              >
+                <img
+                  src={photo.url}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover transition duration-500 ease-in-out hover:opacity-90"
+                  onError={(e) => { 
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; 
+                    target.src = "https://placehold.co/400x300/000000/ffffff?text=Placeholder";
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="text-white font-medium text-sm sm:text-base px-4 text-center">
+                    {photo.alt}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

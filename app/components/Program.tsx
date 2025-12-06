@@ -4,95 +4,164 @@ import React, { useState, useRef, useEffect } from 'react';
 
 // Datos del programa
 const schedule = [
-    {
-      time: "4:30 PM",
-      title: "¡Llegada y Bienvenida Alegre!",
-      desc: "Mientras llegan todos, cantaremos villancicos conocidos y tendremos dinámicas para animar el ambiente. (30 min)",
-      details: [
-        { type: 'canto', text: "Canto: \"Los peces en el río\"", by: "Niños de Amiguitos de Jesús y María." },
-        { type: 'dinamica', text: "Dinámica de \"El vaso\"", description: "En parejas jugaremos a ver quien logra primero agarrar el vaso y lograr la victoria." },
-        { type: 'canto', text: "Canto: \"Campana sobre campana\"", by: "Pastoral juvenil y niños de Amiguitos de Jesús y María." }
-      ]
-    },
-    {
-      time: "5:00 PM",
-      title: "Las Posadas: Entrada de José y María",
-      desc: "Iniciamos oficialmente con una Oración y la representación de la búsqueda de posada. (Tiempo de 20 minutos para que los actores se ubiquen).",
-      details: [
-        { type: 'info', text: "Oración comunitaria e Inicio oficial." },
-        { type: 'info', text: "Entrada de José y María: Pasarán por todo el público hasta llegar a su ubicación final." },
-        { type: 'canto', text: "Canto: \"Las Posadas\"", by: "Grupo de Encuentros Conyugales (acompañando la entrada)." }
-      ]
-    },
-    {
-      time: "5:20 PM",
-      title: "Representación de Reyes Magos y Pastores",
-      desc: "Cantos especiales y representación para honrar el Nacimiento del Señor. (20 min)",
-      details: [
-        { 
-          type: 'canto', 
-          text: `Canto: "Los Reyes Magos - Villancicos Infantiles"`, 
-          by: "Pastoral Juvenil",
-          description: `¡Escucha en YouTube!: https://youtu.be/VmARBltUtNE` 
-        },
-        { 
-          type: 'canto', 
-          text: `Canto: "Pastores Venid - La Pandilla Navideña"`, 
-          by: "Pastoral Juvenil (Canto) y Amiguitos de Jesús y María (Actuación)",
-          description: `¡Escucha en YouTube!: https://youtu.be/zfxVfgp6qmU` 
-        },
-        { 
-          type: 'canto', 
-          text: `Canto: "Los Pastores a Belén"`, 
-          by: "Pastoral Juvenil",
-          description: `¡Escucha en YouTube!: https://youtu.be/E0-jqTPjyLE` 
-        }
-      ]
-    },
-    {
-      time: "5:40 PM",
-      title: "Dinámica: ¡De pie con Simón Dice Navideño!",
-      desc: "Juego simple y rápido para que todos se levanten, se estiren y se rían. (10 min)",
-      details: [
-        { 
-          type: 'dinamica', 
-          text: "Instrucciones de la Dinámica: Simón Dice Navideño",
-          by: "Liderada por Jafet Sirias (Pastoral Juvenil)", 
-          description: "La persona guía dirá: 'Simón dice que...' y una acción (ej: 'Simón dice que abracen a un pastor'). Si la acción se hace sin el 'Simón dice', el que lo haga pierde. ¡Es un juego de agilidad mental y física para todas las edades!"
-        }
-      ]
-    },
-    {
-      time: "5:50 PM",
-      title: "Cantos Navideños: ¡A Cantar Juntos y al Acto Final!",
-      desc: "Veinte minutos de villancicos tradicionales y populares que todos conocen, finalizando el plan y dando paso directo a la Santa Misa. (20 min)",
-      details: [
-        { type: 'canto', text: "Canto: \"La Marimorena\"" },
-        { type: 'canto', text: "Canto: \"Ay del Chiquirritín\"" },
-        { type: 'canto', text: "Canto: \"Noche de Paz\"" },
-        { type: 'canto', text: "Canto: \"Vayamos Cristianos (Adeste Fideles)\"." },
-        { type: 'info', text: "¡Al finalizar los cantos (6:00 PM), pasamos directamente a la celebración de la Santa Misa!" }, 
-      ]
-    },
+  {
+    time: "5:00 PM - 5:25 PM",
+    title: "Introducción",
+    desc: "Iniciamos con una oración, cantos y dinámicas de bienvenida. (25 min)",
+    details: [
+      { 
+        type: 'info', 
+        text: "Oración guiada (5 min)", 
+        by: "Sacerdote",
+        description: "Momento de oración y reflexión para iniciar el evento.",
+        duration: "5:00"
+      },
+      { 
+        type: 'canto', 
+        text: "Noche de paz", 
+        by: "Todos los grupos",
+        duration: "2:40"
+      },
+      { 
+        type: 'canto', 
+        text: "Un gajo de chilincoco", 
+        by: "Jóvenes y Matrimonio",
+        duration: "2:40"
+      },
+      { 
+        type: 'canto', 
+        text: "Los peces en el río", 
+        by: "Niños",
+        duration: "2:00"
+      },
+      { 
+        type: 'canto', 
+        text: "Campanas sobre campanas", 
+        by: "Niños",
+        duration: "2:39"
+      },
+      { 
+        type: 'canto', 
+        text: "En la Capilla hay repique", 
+        by: "Niños y Jóvenes",
+        duration: "2:30"
+      },
+      { 
+        type: 'dinamica', 
+        text: "Dinámica: Montaña Rusa",
+        by: "Equipo de animación",
+        duration: "5:00",
+        description: "¡Prepárate para subir y bajar en esta divertida dinámica grupal!"
+      }
+    ]
+  },
+  {
+    time: "5:25 PM - 5:40 PM",
+    title: "Historia del Nacimiento",
+    desc: "Representación de la historia de la Navidad. (15 min)",
+    details: [
+      { 
+        type: 'canto', 
+        text: "Posada (canto)",
+        by: "Todos",
+        duration: "8:00"
+      },
+      { 
+        type: 'canto', 
+        text: "Una bella pastorcita", 
+        by: "Matrimonio",
+        duration: "2:26"
+      },
+      { 
+        type: 'canto', 
+        text: "Pastores venid", 
+        by: "Niños",
+        duration: "2:07"
+      },
+      { 
+        type: 'canto', 
+        text: "Ya vienen los reyes magos", 
+        by: "Jóvenes",
+        duration: "1:53"
+      },
+      { 
+        type: 'canto', 
+        text: "La sagrada familia", 
+        by: "Matrimonio",
+        duration: "2:19"
+      }
+    ]
+  },
+  {
+    time: "5:40 PM - 6:10 PM",
+    title: "Concierto Navideño",
+    desc: "Espectáculo musical navideño con todos los grupos. (30 min)",
+    details: [
+      { 
+        type: 'dinamica', 
+        text: "Presentación de Cantos",
+        by: "Equipo de animación",
+        description: "¡Participa en esta dinámica musical!",
+        duration: "5:00"
+      },
+      { 
+        type: 'canto', 
+        text: "Del cielo", 
+        by: "Todos los grupos",
+        duration: "4:20"
+      },
+      { 
+        type: 'canto', 
+        text: "La marimorena", 
+        by: "Jóvenes",
+        duration: "3:10"
+      },
+      { 
+        type: 'canto', 
+        text: "Chiquirritin", 
+        by: "Matrimonios y Jóvenes",
+        duration: "2:30"
+      },
+      { 
+        type: 'canto', 
+        text: "Canta un ángel", 
+        by: "Jóvenes y Matrimonio",
+        duration: "2:45"
+      },
+      { 
+        type: 'canto', 
+        text: "El rey vendrá", 
+        by: "Todos los grupos",
+        duration: "2:21"
+      }
+    ]
+  }
 ];
 
 const Program = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="programa" className="py-20 sm:py-24 bg-white w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-center text-green-800 mb-12 md:mb-16">
-          🎶 Nuestro Itinerario de Alegría
-        </h2>
+    <section id="programa" className="py-12 sm:py-16 bg-gradient-to-b from-green-50 to-white w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-amber-600 mb-4">
+            🎵 Itinerario del Evento
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Disfruta de un programa lleno de música, alegría y el verdadero espíritu navideño
+          </p>
+        </div>
+        
         <div className="relative">
-          <div className="absolute left-4 sm:left-1/2 top-0 h-full w-1 bg-amber-300 -translate-x-1/2"></div>
+          {/* Línea de tiempo decorativa */}
+          <div className="absolute left-4 sm:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-amber-300 to-green-400 -translate-x-1/2 hidden sm:block"></div>
           
-          <ul className="space-y-4">
+          <ul className="space-y-8 sm:space-y-12">
             {schedule.map((item, index) => (
               <TimeLineItem key={index} item={item} index={index} openIndex={openIndex} handleToggle={handleToggle} />
             ))}
@@ -106,115 +175,135 @@ const Program = () => {
 // Componente para un ítem de la línea de tiempo
 const TimeLineItem = ({ item, index, openIndex, handleToggle }: { item: any, index: number, openIndex: number | null, handleToggle: (index: number) => void }) => {
   const contentRef = useRef<HTMLDivElement>(null);
-    // Nuevo estado para saber si estamos en el cliente
-    const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const isOpen = openIndex === index;
 
-    useEffect(() => {
-        // Esto solo se ejecuta en el navegador
-        setIsClient(true);
-    }, []);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-    // Función para calcular los estilos de margen de forma segura
-    const getDetailPanelStyles = () => {
-        // En SSR o si es móvil (< 640px, que es el breakpoint 'sm' de Tailwind)
-        // aplicamos el margen móvil, o si aún no se ha montado el cliente.
-        if (!isClient || window.innerWidth <= 640) {
-            return {
-                marginLeft: '3rem',
-                marginRight: '0',
-            };
-        }
-        
-        // Vista de escritorio: alternamos izquierda y derecha
-        return {
-            marginLeft: index % 2 === 0 ? 'calc(50% + 2rem)' : '0',
-            marginRight: index % 2 === 0 ? '0' : 'calc(50% + 2rem)',
-        };
+  const getDetailPanelStyles = () => {
+    if (!isClient || window.innerWidth <= 640) {
+      return { marginLeft: '2.5rem', marginRight: '0' };
+    }
+    return {
+      marginLeft: index % 2 === 0 ? 'calc(50% + 2rem)' : '0',
+      marginRight: index % 2 === 0 ? '0' : 'calc(50% + 2rem)',
     };
+  };
 
+  // Extraer hora de inicio y fin del formato "5:00 PM - 5:30 PM"
+  const [startTime, endTime] = item.time.split(' - ');
+  const duration = item.desc.match(/\(([^)]+)\)/)?.[1] || '';
 
-    return (
-        <li className="relative transition-all duration-300">
-            {/* Punto de la línea de tiempo */}
-            <div className="absolute left-4 sm:left-1/2 top-1 w-4 h-4 bg-red-700 rounded-full -translate-x-1/2 z-10"></div>
-            
-            {/* Contenido principal del evento */}
-            <div 
-                className="pl-12 sm:pl-0 sm:flex sm:items-center rounded-lg hover:bg-gray-50 cursor-pointer p-2 sm:p-0 transition-colors" 
-                style={{ flexDirection: index % 2 === 0 ? 'row' : 'row-reverse' }}
-                onClick={() => handleToggle(index)}
-            >
-                {/* Hora */}
-                <div className="sm:w-1/2 sm:pr-8" style={{ textAlign: index % 2 === 0 ? 'right' : 'left' }}>
-                    <span className="text-lg sm:text-xl md:text-2xl font-bold text-red-700">{item.time}</span>
+  return (
+    <li className="relative group">
+      {/* Línea de tiempo y punto */}
+      <div className="absolute left-0 sm:left-1/2 top-6 w-8 h-8 -ml-4 sm:-ml-4 flex items-center justify-center z-10">
+        <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+          isOpen ? 'bg-green-600 scale-110' : 'bg-amber-500 group-hover:bg-green-500'
+        }`}>
+          <span className="text-white text-xs font-bold">{index + 1}</span>
+        </div>
+      </div>
+      
+      {/* Tarjeta del evento */}
+      <div 
+        className={`relative pl-12 sm:pl-0 mb-8 transition-all duration-300 ${
+          isOpen ? 'scale-[1.02]' : ''
+        }`}
+        onClick={() => handleToggle(index)}
+      >
+        <div className={`bg-white rounded-xl shadow-md overflow-hidden border-l-4 ${
+          isOpen ? 'border-green-500' : 'border-amber-400'
+        } transition-all duration-300 hover:shadow-lg`}>
+          {/* Encabezado */}
+          <div className="p-5 sm:p-6 cursor-pointer">
+            <div className="flex justify-between items-start">
+              <div className="flex-1">
+                <div className="flex items-center space-x-2 mb-1">
+                  <span className="text-sm font-medium text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full">
+                    {startTime} - {endTime}
+                  </span>
+                  <span className="text-xs text-gray-500">{duration}</span>
                 </div>
-                {/* Título y Descripción */}
-                <div className="relative sm:w-1/2 sm:pl-8" style={{ textAlign: 'left' }}>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 mt-1 sm:mt-0">{item.title}</h3>
-                    <p className="text-gray-600 mt-2 sm:mt-3 text-base sm:text-lg md:text-xl">{item.desc}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
+                <p className="text-gray-600">{item.desc.replace(/\([^)]+\)/g, '').trim()}</p>
+              </div>
+              {item.details && item.details.length > 0 && (
+                <button 
+                  className={`p-2 rounded-full transition-colors ${
+                    isOpen ? 'bg-green-50 text-green-600' : 'text-gray-400 hover:bg-gray-50'
+                  }`}
+                  onClick={(e) => { e.stopPropagation(); handleToggle(index); }}
+                >
+                  <svg 
+                    className={`w-5 h-5 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
+          
+          {/* Detalles desplegables */}
+          {item.details && item.details.length > 0 && (
+            <div 
+              className="transition-all duration-500 ease-in-out overflow-hidden"
+              style={{ maxHeight: isOpen ? (contentRef.current?.scrollHeight ?? 0) : 0 }}
+            >
+              <div 
+                ref={contentRef}
+                className="px-6 pb-6 pt-2 bg-gray-50 border-t border-gray-100"
+              >
+                <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Actividades</h4>
+                <ul className="space-y-3">
+                  {item.details.map((detail: any, i: number) => {
+                    const iconMap: Record<string, { emoji: string; color: string }> = {
+                      'canto': { emoji: '🎵', color: 'bg-blue-100 text-blue-600' },
+                      'dinamica': { emoji: '🏃‍♂️', color: 'bg-green-100 text-green-600' },
+                      'info': { emoji: 'ℹ️', color: 'bg-amber-100 text-amber-600' }
+                    };
+                    const { emoji, color } = iconMap[detail.type] || { emoji: '•', color: 'bg-gray-100 text-gray-600' };
                     
-                    {/* Icono de flecha para expandir */}
-                    {item.details && item.details.length > 0 && (
-                        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-green-700 transition-transform duration-300" 
-                            style={{ transform: openIndex === index ? 'rotate(180deg) translateY(50%)' : 'translateY(-50%)' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
+                    return (
+                      <li key={i} className="flex items-start p-3 bg-white rounded-lg shadow-sm hover:shadow transition-shadow">
+                        <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-lg mr-3 ${color}`}>
+                          {emoji}
                         </span>
-                    )}
-                </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900 truncate">{detail.text}</p>
+                          {detail.by && (
+                            <p className="text-xs text-gray-500 mt-1">
+                              <span className="font-medium">Responsable:</span> {detail.by}
+                            </p>
+                          )}
+                          {detail.duration && (
+                            <p className="text-xs text-gray-500">
+                              <span className="font-medium">Duración:</span> {detail.duration}
+                            </p>
+                          )}
+                          {detail.description && (
+                            <div className="mt-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                              {detail.description}
+                            </div>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-            
-            {/* Panel de detalles expandible */}
-            <div 
-                className="transition-all duration-500 ease-in-out overflow-hidden"
-                // Altura dinámica basada en el contenido. Usamos un valor seguro si contentRef no está listo.
-                style={{ maxHeight: openIndex === index ? (contentRef.current?.scrollHeight ?? 0) + 50 : 0 }}
-            >
-                {item.details && item.details.length > 0 && (
-                    <div 
-                        ref={contentRef}
-                        className="mt-4 sm:mt-2 p-6 bg-white rounded-lg shadow-xl border-2 border-amber-200"
-                        // Aplicamos los estilos calculados de forma segura
-                        style={isClient ? getDetailPanelStyles() : {}}
-                    >
-                        <h4 className="font-bold text-xl sm:text-2xl md:text-3xl mb-6 text-green-800 border-b border-gray-200 pb-2">Detalles:</h4>
-                        <ul className="list-none space-y-3">
-                            {item.details.map((detail:any, i:number) => (
-                                <li key={i} className="flex items-start p-3">
-                                    <span className="mr-4 text-xl bg-amber-100 text-amber-700 p-2 rounded-full w-10 h-10 flex items-center justify-center">
-                                        {detail.type === 'canto' && '🎶'}
-                                        {detail.type === 'dinamica' && '🏃‍♂️'}
-                                        {detail.type === 'info' && 'ℹ️'}
-                                    </span>
-                                    <div>
-                                        <span className="font-semibold text-gray-700 text-base sm:text-lg md:text-xl">{detail.text}</span>
-                                        {detail.by && <p className="text-sm sm:text-base md:text-lg text-gray-600 italic pl-1 mt-1">Por: {detail.by}</p>}
-                                        {detail.description && (
-                                            detail.type === 'canto' ? (
-                                                <p className="text-sm sm:text-base text-gray-600 pl-1 mt-1">
-                                                    <a 
-                                                      href={detail.description.replace('¡Escucha en YouTube!: ', '')} 
-                                                      target="_blank" 
-                                                      rel="noopener noreferrer" 
-                                                      className="text-blue-500 hover:text-blue-700 underline text-sm sm:text-base"
-                                                    >
-                                                      {detail.description.replace('¡Escucha en YouTube!: ', '').substring(0, 30)}...
-                                                    </a>
-                                                </p>
-                                            ) : (
-                                                <p className="text-sm sm:text-base text-gray-600 pl-1 mt-1">Instrucciones: {detail.description}</p>
-                                            )
-                                        )}
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </div>
-        </li>
-    );
+          )}
+        </div>
+      </div>
+    </li>
+  );
 }
 
 export default Program;
